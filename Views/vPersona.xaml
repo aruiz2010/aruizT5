@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="aruizT5.Views.vPersona"
+             Title="vPersona">
+    <VerticalStackLayout
+        Spacing="25">
+        <Label 
+            Text="BASE DE DATOS SQLITE"
+            FontSize="24"
+            HorizontalTextAlignment="Center"/>
+
+        <Entry x:Name="txtPersona"
+               Placeholder="Ingrese un nombre"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnAgregar"
+                    Text="Agregar persona"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Clicked="btnAgregar_Clicked"/>
+            <Label x:Name="lblStatus"
+                   Grid.Row="1"
+                   Grid.Column="0"/>
+
+            <Button x:Name="btnObtener"
+                    Text="Listar personas"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Clicked="btnObtener_Clicked"/>
+            <Button x:Name="btnEliminar"
+        Text="Eliminar persona"
+        Grid.Row="4"
+        Grid.Column="0"
+        Clicked="btnEliminar_Clicked"/>
+          
+
+
+            <CollectionView x:Name="Listapersonas"
+                            Grid.Row="3"
+                            Grid.Column="0">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Id }" Grid.Column="0"/>
+                            <Label Text="{Binding Name}" Grid.Column="1"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Entry x:Name="txtIdPersonaUpdate" Placeholder="ID de la persona a actualizar" Grid.Row="0" />
+            <Entry x:Name="txtNuevoNombre" Placeholder="Nuevo nombre de la persona" Grid.Row="1" />
+            <Button x:Name="btnActualizar" Text="Actualizar persona" Clicked="btnActualizar_Clicked" Grid.Row="2" />
+            <Label x:Name="lblStatusUpdate" Grid.Row="3" />
+
+            <!-- Agrega más elementos Grid.Row según sea necesario -->
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
